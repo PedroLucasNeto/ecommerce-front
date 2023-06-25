@@ -13,7 +13,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <div className="min-h-screen">
       <Sidebar isOpen={isSideBarOpen} setIsSideBarOpen={setIsSideBarOpen} />
       <Navbar setIsSideBarOpen={setIsSideBarOpen} />
-      <div className="flex flex-col  text-slate-900">{children}</div>
+      <div className="outlet">{children}</div>
     </div>
   );
 }

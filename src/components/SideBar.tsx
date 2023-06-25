@@ -1,8 +1,10 @@
+import Link from 'next/link';
 import React from 'react';
 import {
   MdClose,
   MdOutlineAccountCircle,
   MdOutlineFavoriteBorder,
+  MdOutlineHome,
   MdOutlineShoppingCart,
 } from 'react-icons/md';
 
@@ -29,22 +31,25 @@ export default function SideBar({ isOpen, setIsSideBarOpen }: SidebarProps) {
             <MdClose className="h-6 w-6" />
           </button>
         </div>
-        <ul className="flex flex-col gap-4">
-          <li className="flex items-center gap-1">
+        <div className="flex flex-col gap-4">
+          <Link href="/" className="flex items-center gap-1.5">
+            <MdOutlineHome className="h-5 w-5" />
+            <span>Ínicio</span>
+          </Link>
+          <Link href="/wishlist" className="flex items-center gap-1.5">
             <MdOutlineFavoriteBorder className="h-5 w-5" />
             <span>Lista de desejos</span>
-          </li>
-          <li className="flex items-center gap-1">
+          </Link>
+          <Link href="/cart" className="flex items-center gap-1.5">
             <MdOutlineShoppingCart className="h-5 w-5" />
             <span>Seu carrinho</span>
-          </li>
-          <li className="flex items-center gap-1">
+          </Link>
+          <Link href="/users/1" className="flex items-center gap-1.5">
             <MdOutlineAccountCircle className="h-5 w-5" />
             <span>Entrar</span>
-          </li>
-        </ul>
+          </Link>
+        </div>
       </aside>
-
       <div
         className={`absolute top-0 left-0 h-full w-full bg-black/90 backdrop-blur-sm 
         xs:hidden ${isOpen ? 'block' : 'hidden'}`}

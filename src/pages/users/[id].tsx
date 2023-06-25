@@ -1,12 +1,14 @@
 import React from 'react';
 import * as Avatar from '@radix-ui/react-avatar';
 import * as Separator from '@radix-ui/react-separator';
-import ProfileOption from '@/components/ProfileOption';
+import { MdOutlineLogout } from 'react-icons/md';
+
+import ProfileOptions from '@/components/ProfileOptions';
 import { fakeUser } from '@/utils/data';
 
 export default function MyAccount() {
   return (
-    <main className="h-screen p-8">
+    <main className="p-8">
       <section className="flex gap-4">
         <Avatar.Root className="flex h-14 w-14 rounded-full overflow-hidden">
           <Avatar.Image
@@ -28,13 +30,17 @@ export default function MyAccount() {
       </section>
       <Separator.Root
         orientation="horizontal"
-        className="h-[1px] w-full my-4 bg-slate-300 md:bg-slate-200"
+        className="h-[1px] w-full my-8 bg-slate-200"
       />
-      <section className="flex flex-col gap-2">
-        {[1, 2, 3, 4].map((index) => (
-          <ProfileOption key={index} />
-        ))}
-      </section>
+      <ProfileOptions data={fakeUser} />
+      <Separator.Root
+        orientation="horizontal"
+        className="h-[1px] w-full my-8 bg-slate-200"
+      />
+      <button className="flex items-center gap-2 py-2 px-4 text-sm text-slate-100 bg-slate-800 rounded-md transition-all duration-300 ease-in-out hover:bg-slate-900">
+        <MdOutlineLogout className="text-lg" />
+        <strong>Sair da conta</strong>
+      </button>
     </main>
   );
 }

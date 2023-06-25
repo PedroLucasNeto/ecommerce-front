@@ -17,21 +17,29 @@ export default function Navbar({ setIsSideBarOpen }: NavbarProps) {
   };
 
   return (
-    <header className="w-full flex justify-between items-center py-4 px-6 text-slate-900 bg-slate-200 shadow-sm shadow-slate-400/60">
-      <h1 className="font-semibold">Ecommerce</h1>
+    <header className="h-14 w-full flex justify-between items-center py-4 px-6 text-slate-800 bg-slate-200 shadow-sm shadow-slate-400/60">
+      <Link href="/" className="font-semibold">
+        Ecommerce
+      </Link>
       <nav className="flex items-center gap-2.5 xs:gap-6">
-        <ul className="hidden gap-4 xs:flex">
-          <li className="flex items-center gap-1.5">
+        <div className="hidden gap-6 text-sm xs:flex">
+          <Link
+            href="/wishlist"
+            className="flex items-center gap-1.5 cursor-pointer transition-all duration-300 ease-in-out hover:text-slate-950"
+          >
             <MdOutlineFavoriteBorder className="h-5 w-5" />
             <strong>Lista de desejos</strong>
-          </li>
-          <li className="flex items-center gap-1.5">
+          </Link>
+          <Link
+            href="/cart"
+            className="flex items-center gap-1.5 cursor-pointer transition-all duration-300 ease-in-out hover:text-slate-950"
+          >
             <MdOutlineShoppingCart className="h-5 w-5" />
             <strong>Carrinho</strong>
-          </li>
-        </ul>
-        <button className="flex items-center gap-1 py-1.5 px-2 text-sm text-slate-200 bg-slate-800 rounded-sm transition-all duration-300 ease-in-out hover:bg-slate-900">
-          <MdOutlineAccountCircle className="h-5 w-5" />
+          </Link>
+        </div>
+        <button className="flex items-center gap-1 py-1.5 px-2 text-xs text-slate-200 bg-slate-800 rounded-md transition-all duration-300 ease-in-out hover:bg-slate-900">
+          <MdOutlineAccountCircle className="h-4 w-4" />
           {true ? (
             <Link href="/users/1">Minha conta</Link>
           ) : (
